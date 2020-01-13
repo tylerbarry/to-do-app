@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>To-Do App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-red.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Greeting -->
+          <span class="mdl-layout-title">Hello, Username !</span>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Home</a>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Username</span>
+      </div>
+      <main class="mdl-layout__content">
+        <!-- Scroll Tab 1 -->
+        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+          <div class="page-content">
+            <form action="#" id="addToDoForm">
+              <div class="mdl-textfield mdl-js-textfield">
+                <label class="mdl-textfield__label" for="newToDoText">Add a Task</label>
+                <input class="mdl-textfield__input" type="text" id="newToDoText">
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent type="submit">Add</button>
+            </form>
+            <style>
+            .demo-list-item {
+              width: 800px;
+             </style>
+            <ul class="demo-list-item mdl-list" id="toDoList">
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
