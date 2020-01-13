@@ -21,13 +21,11 @@ function onReady(){
 });
 
     newLi.textContent = title;
-    newLi.className += "mdl-list__item";
     newLi.appendChild(checkbox);
     newLi.appendChild(deleteBtn);
-    deleteBtn.className += "mdl-button mdl-js-button mdl-button--raised mdl-button--colored";
-    checkbox.className += "mdl-checkbox mdl-js-checkbox";
+   
     TODO_LIST.appendChild(newLi);
-    NEW_TODO_TEXT.value = "Add a Task";
+    NEW_TODO_TEXT.value = '';
   });
 };
 
