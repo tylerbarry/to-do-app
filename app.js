@@ -1,81 +1,62 @@
-function onReady(){
-<<<<<<< HEAD
-  const toDos = [];
-  const addToDoForm = document.getElementByID('addToDoForm');
+
+function onReady() {
+
+  var toDos = [];
+  const addToDoForm = document.getElementById('addToDoForm');
+  let id = 0
 
   function createNewToDo() {
-    const newToDoText = document.getElementByID('newToDoText');
-    if (!newToDoText.value) { return; }
-    
+    const newToDoText = document.getElementById('newToDoText');
+    if (!newToDoText.value) {
+      return;
+    }
     toDos.push({
       title: newToDoText.value,
-      complete: false
-    });
-    newToDoText.value='';
+      complete: false,
+      id: id
 
+    });
+    id++;
+    newToDoText.value = '';
     renderTheUI();
+
   }
 
   function renderTheUI() {
-    const toDoList = document.getElementByID('toDoList');
-
+    const toDoList = document.getElementById('toDoList');
     toDoList.textContent = '';
-
     toDos.forEach(function(toDo) {
       const newLi = document.createElement('li');
       const checkbox = document.createElement('input');
+      const del = document.createElement('Button');
+
+      del.textContent = "Delete";
       checkbox.type = "checkbox";
 
+      del.addEventListener('click', event => {
+        toDos = toDos.filter(function(item) {
+          return item.id !== toDo.id;
+        });
+        renderTheUI();
+      });
       newLi.textContent = toDo.title;
-
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
-    });
-  }
+      newLi.appendChild(del);
 
+
+
+    });
+
+
+  }
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
   });
-
   renderTheUI();
 }
 
 window.onload = function() {
-=======
-  const ADD_TODO_FORM = document.getElementById('addToDoForm');
-  const NEW_TODO_TEXT = document.getElementById('newToDoText');
-  const TODO_LIST = document.getElementById('toDoList');
-
-  ADD_TODO_FORM.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    let title = NEW_TODO_TEXT.value;
-
-    let checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    let newLi = document.createElement('li');
-
-
-    let deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "Delete";
-
-    deleteBtn.addEventListener('click', function(event){
-      TODO_LIST.removeChild(this.parentElement);
-});
-
-    newLi.textContent = title;
-    newLi.className += "mdl-list__item";
-    newLi.appendChild(checkbox);
-    newLi.appendChild(deleteBtn);
-    deleteBtn.className += "mdl-button mdl-js-button mdl-button--raised mdl-button--colored";
-    checkbox.className += "mdl-checkbox mdl-js-checkbox";
-    TODO_LIST.appendChild(newLi);
-    NEW_TODO_TEXT.value = "Add a Task";
-  });
-};
-
-window.onload = function(){
->>>>>>> cp-12-DOM
   onReady();
 };
